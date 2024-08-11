@@ -1,45 +1,53 @@
+/* Global Styles */
 
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Lobster&family=Martel:wght@200;300;400;600;700;800;900&family=Pacifico&family=Quicksand:wght@300..700&family=Signika+Negative:wght@300..700&display=swap');
-
-*{
+* {
     margin: 0;
     padding: 0;
-    
     box-sizing: border-box;
     font-family: "Signika Negative", sans-serif;
     font-optical-sizing: auto;
     font-weight: <weight>;
     font-style: normal;
 }
-.container{
+
+.container {
     width: 100%;
     min-height: 100vh;
-    
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-    padding: 10px;
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.todo-app{
-   width: 100%;
-   max-width: 540px;
-   background: #fff;
-   margin: 100px auto 20px;
-   padding: 40px 30px 70px;
-   border-radius: 10px;
-}
-.todo-app h2{
+
+.todo-app h2 {
     color: #002765;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    
+    font-size: 1.5em;
+    text-align: center;
 }
-.todo-app h2 img{
+
+.todo-app h2 img {
     width: 30px;
     margin-left: 10px;
 }
-.row{
+
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,39 +55,48 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
-
 }
-input{
+
+input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;
-   
+    font-size: 1em;
 }
 
-button{
+button {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 16px 30px;
     background: #ff5945;
     color: #fff;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
     border-radius: 40px;
+    transition: background 0.3s ease;
 }
 
-ul li{
+button:hover {
+    background: #e14a3a;
+}
+
+ul li {
     list-style: none;
-    font-size: 17px;
+    font-size: 1em;
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
+    transition: background 0.3s ease;
 }
 
-ul li::before{
+ul li:hover {
+    background: #f9f9f9;
+}
+
+ul li::before {
     content: '';
     position: absolute;
     height: 28px;
@@ -90,18 +107,18 @@ ul li::before{
     background-position: center;
     top: 12px;
     left: 8px;
-
 }
 
-ul li.checked{
+ul li.checked {
     color: #555;
     text-decoration: line-through;
 }
-ul li.checked::before{
+
+ul li.checked::before {
     background-image: url(images/checked.png);
 }
 
-ul li span{
+ul li span {
     position: absolute;
     right: 0;
     top: 5px;
@@ -112,9 +129,89 @@ ul li span{
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+    transition: background 0.3s ease;
 }
 
-ul li span:hover{
+ul li span:hover {
     background: #edeef0;
-    
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .todo-app {
+        padding: 30px 20px 50px;
+        margin: 20px;
+    }
+
+    .todo-app h2 {
+        font-size: 1.3em;
+    }
+
+    .row {
+        padding-left: 15px;
+    }
+
+    button {
+        padding: 14px 25px;
+        font-size: 0.9em;
+    }
+
+    input {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    ul li {
+        font-size: 0.9em;
+        padding: 10px 8px 10px 45px;
+    }
+
+    ul li::before {
+        height: 24px;
+        width: 24px;
+        top: 10px;
+        left: 8px;
+    }
+
+    ul li span {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-app h2 {
+        font-size: 1.2em;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 0.8em;
+    }
+
+    input {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    ul li {
+        font-size: 0.8em;
+        padding: 8px 8px 8px 40px;
+    }
+
+    ul li::before {
+        height: 20px;
+        width: 20px;
+        top: 8px;
+        left: 8px;
+    }
+
+    ul li span {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        line-height: 30px;
+    }
 }
